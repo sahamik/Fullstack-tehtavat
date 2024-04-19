@@ -1,8 +1,9 @@
 POST  http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9wcGlsYXMiLCJpZCI6IjY2MjI5Y2U3MGI4ZjI3OTIxOTVkMjRkNiIsImlhdCI6MTcxMzU0NjU2M30.Q8ktTr_0Hfu1d3uA-X-MBB9dUP9ym7GLhtlt17wA3Xo
 
 {
-    "title": "Koodaus Blogi",
+    "title": "Koulu blogi",
     "author": "Oppilas",
     "url": "https://www.example.com",
     "likes": 0,
