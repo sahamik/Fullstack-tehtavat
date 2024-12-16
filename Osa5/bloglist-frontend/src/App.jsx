@@ -16,24 +16,23 @@ const App = () => {
   const[errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const [loginVisible, setLoginVisible] = useState(false)
-  const noteFormRef = useRef();
+  const noteFormRef = useRef()
 
   useEffect(() => {
     if (user) {
       blogService.getAll().then(blogs => {
         const sortedBlogs = blogs.sort((a, b) => b.likes - a.likes)
         setBlogs(sortedBlogs)
-      }) 
-    } 
+      })
+    }
   }, [user])
 
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
     if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
       setUser(user)
-      if (user) {
-        blogService.setToken(user.token)
-      }
+      blogService.setToken(user.token)
     }
   }, [])
 
@@ -67,11 +66,11 @@ const App = () => {
     setBlogs([])
   }
 
-    const createBlog = (newBlog) => {
+  const createBlog = (newBlog) => {
     noteFormRef.current.toggleVisibility()
     blogService
       .create(newBlog)
-        .then(returnedBlog => {
+      .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
         setSuccessMessage(`a new blog ${returnedBlog.title} by ${returnedBlog.author} added!`)
         setTimeout(() => {

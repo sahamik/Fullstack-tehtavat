@@ -33,6 +33,6 @@ const Blog = ({ blog, handleLike, handleDelete }) => {
       )}
     </div>
   )
-  }
+}
 
 export default Blog
