@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 const Blog = ({ blog, handleLike, handleDelete }) => {
+  const [visible, setVisible] = useState(false)
+
   const blogStyle = {
     width: '50%',
     backgroundColor: '#f4f4f4',
@@ -10,8 +12,6 @@ const Blog = ({ blog, handleLike, handleDelete }) => {
     marginBottom: '15px',
     boxShadow: '2px 2px 2px 2px #ddd',
   }
-
-  const [visible, setVisible] = useState(false)
 
   const toggleVisibility = () => {
     setVisible(!visible)
@@ -27,7 +27,7 @@ const Blog = ({ blog, handleLike, handleDelete }) => {
         <div>
           <p>URL: <a href={blog.url} target="_blank" rel="noopener noreferrer">{blog.url}</a></p>
           <p>Likes: {blog.likes} <button onClick={() => handleLike(blog.id)}>Like</button></p>
-          <p> {blog.author}</p>
+          <p>{blog.author}</p>
           <button onClick={() => handleDelete(blog.id)}>Delete</button>
         </div>
       )}
